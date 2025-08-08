@@ -470,59 +470,138 @@ console.log("Elimina il film con indice:", num, movies[num - 1], removeIndex(mov
 Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
 console.log("___________________Esercizio 20");
+const getCointainerElementById = () => {
+  return document.getElementById("container");
+};
+console.log("element con id container:", getCointainerElementById());
 
 /* ESERCIZIO 21
-  Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
+Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
+console.log("___________________Esercizio 21");
+const getElementTd = () => {
+  return document.querySelectorAll("td");
+};
+console.log(getElementTd());
 
 /* ESERCIZIO 22
-  Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
+Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
-
+console.log("___________________Esercizio 22");
+const printTd = () => {
+  const allTd = getElementTd();
+  allTd.forEach((element) => console.log(element.innerText));
+};
+printTd();
 /* ESERCIZIO 23
-  Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
+Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
-
+console.log("___________________Esercizio 23");
+const getBackgroundRedA = () => {
+  const allA = document.querySelectorAll("a");
+  allA.forEach((element) => (element.style.background = "red"));
+};
+getBackgroundRedA();
 /* ESERCIZIO 24
-  Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
+Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
+console.log("___________________Esercizio 24");
+const getElementToUl = () => {
+  const ulList = document.getElementById("myList");
+  const li = document.createElement("li");
+  ulList.appendChild(li);
+};
+getElementToUl();
+getElementToUl();
+getElementToUl();
 
 /* ESERCIZIO 25
-  Scrivi una funzione per svuotare la lista non ordinata con id "myList".
+Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
+console.log("___________________Esercizio 25");
+const deleteLiToUl = () => {
+  const ulList = document.getElementById("myList");
+  const allLi = ulList.querySelectorAll("li");
+  console.log(allLi);
+  allLi.forEach((element) => element.remove());
+};
+// FUNZIONE PER ELIMINARE LA LISTA SOTTO:
+// deleteLiToUl();
 
 /* ESERCIZIO 26
-  Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
+Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+console.log("___________________Esercizio 26");
+const addClassTest = () => {
+  const allTr = document.querySelectorAll("tr");
+  allTr.forEach((element) => element.classList.add("test"));
+};
+addClassTest();
 
 // [EXTRA] JS Avanzato
 
 /* ESERCIZIO 27
-  Crea una funzione chiamata "halfTree" che riceve un numero come parametro e costruisce un mezzo albero di "*" (asterischi) dell'altezza fornita.
+Crea una funzione chiamata "halfTree" che riceve un numero come parametro e costruisce un mezzo albero di "*" (asterischi) dell'altezza fornita.
 
-  Esempio:
-  halfTree(3)
+Esempio:
+halfTree(3)
 
-  *
-  **
-  ***
+*
+**
+***
 
 */
+console.log("___________________Esercizio 27");
+const halfTree = (num) => {
+  let asterisco = "*";
+  for (let I = 0; I < num; I++) {
+    console.log(asterisco);
+    asterisco += "*";
+  }
+};
+halfTree(5);
 
 /* ESERCIZIO 28
-  Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
+Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
 
-  Esempio:
-  tree(3)
+Esempio:
+tree(3)
 
-    *
-   ***
-  *****
+  *
+ ***
+*****
 
 */
+console.log("___________________Esercizio 28");
+const tree = (num) => {
+  let str = "";
+  let riga = 0;
+  for (let i = 0; i < num; i++) {
+    let spazi = num - riga - 1;
+    let asterisco = riga * 2 + 1;
+    for (let x = spazi; x > 0; x--) {
+      str += " ";
+    }
+    for (let y = asterisco; y > 0; y--) {
+      str += "*";
+    }
+    console.log(str);
+    riga++;
+    str = "";
+  }
+};
+tree(3);
 
 /* ESERCIZIO 29
-  Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
+Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
-
+console.log("___________________Esercizio 29");
+const isItPrime = (num) => {
+  if (num <= 1) return false;
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) return false;
+    else return true;
+  }
+};
+console.log("Il numero inserito è un numero primo?", isItPrime(13));
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
